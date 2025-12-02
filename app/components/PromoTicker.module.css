@@ -1,0 +1,87 @@
+.ticker {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(90deg, #f9fafb, #eef2ff, #f9fafb);
+  padding: 16px 0;
+}
+
+.track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: ticker 30s linear infinite;
+}
+
+.card {
+  min-width: 280px;
+  max-width: 320px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.media {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.imageWrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: radial-gradient(circle at 0 0, #eff6ff, #e5e7eb);
+}
+
+.tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #64748b;
+  margin: 0;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.copy {
+  margin: 0;
+  color: #475569;
+}
+
+.cta {
+  font-size: 13px;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .track {
+    animation-duration: 20s;
+  }
+
+  .card {
+    min-width: 240px;
+  }
+}
+
