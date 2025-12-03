@@ -1,5 +1,5 @@
 .page {
-  --background: radial-gradient(circle at top, #e0f2fe, #f8fafc 45%);
+  --background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 50%, #ffd9b3 100%);
   --foreground: #fff;
   --text-primary: #0f172a;
   --text-secondary: #475569;
@@ -9,10 +9,11 @@
 
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
   font-family: var(--font-geist-sans);
   background: var(--background);
   padding: 40px 0 80px;
+  min-height: 100vh;
 }
 
 .hero {
@@ -24,11 +25,12 @@
 .banner {
   border-radius: 28px;
   overflow: hidden;
-  background-image: url("/window.svg");
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
   background-size: cover;
   background-position: center;
-  min-height: 260px;
+  min-height: 280px;
   position: relative;
+  box-shadow: 0 8px 24px rgba(251, 146, 60, 0.3);
 }
 
 .bannerOverlay {
