@@ -11,7 +11,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Cotton Premium",
     price: "Rp 299.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/kemejapria.png",
     color: "Putih & Biru",
   },
   {
@@ -20,7 +20,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size S-L | Bahan Katun",
     price: "Rp 399.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/dresswanita.png",
     color: "Pink & Navy",
   },
   {
@@ -29,7 +29,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Denim Original",
     price: "Rp 599.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/denimunisex.png",
     color: "Blue & Black",
   },
   {
@@ -38,7 +38,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size 28-36 | Slim Fit",
     price: "Rp 349.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/chinopria.png",
     color: "Khaki & Navy",
   },
   {
@@ -47,7 +47,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size S-XXL | Cotton 100%",
     price: "Rp 149.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/kaospria.png",
     color: "Hitam & Putih",
   },
   {
@@ -56,7 +56,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size S-L | Satin Premium",
     price: "Rp 449.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/blushwanita.png",
     color: "Cream & Navy",
   },
   {
@@ -65,7 +65,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Flanel Tebal",
     price: "Rp 279.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/flanelpria.png",
     color: "Merah & Biru",
   },
   {
@@ -74,7 +74,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "One Size | Cotton Blend",
     price: "Rp 49.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/kaoskakipremium.png",
     color: "Putih & Hitam",
   },
   {
@@ -83,7 +83,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Fleece",
     price: "Rp 499.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/hoodieunisex.png",
     color: "Abu-abu & Hitam",
   },
   {
@@ -92,7 +92,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Katun Batik",
     price: "Rp 379.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/batikpria.png",
     color: "Coklat & Emas",
   },
   {
@@ -101,7 +101,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 38-44 | Sporty",
     price: "Rp 799.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/sneakernike.png",
     color: "White & Black",
   },
   {
@@ -110,7 +110,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 39-43 | Running",
     price: "Rp 899.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/runningaddidas.png",
     color: "Black & White",
   },
   {
@@ -328,4 +328,3 @@ export default function RecommendedProducts() {
     </section>
   );
 }
-

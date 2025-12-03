@@ -2,16 +2,16 @@ import Image from "next/image";
 import styles from "./CategoryGrid.module.css";
 
 const categories = [
-  { id: 1, name: "Fashion", icon: "/gallery/logo/nike.png", count: "1.240" },
-  { id: 2, name: "Elektronik", icon: "/gallery/logo/samsung.png", count: "980" },
-  { id: 3, name: "Beauty", icon: "/gallery/logo/apple.png", count: "860" },
-  { id: 4, name: "Gadget", icon: "/gallery/logo/sony.png", count: "540" },
-  { id: 5, name: "Sepatu", icon: "/gallery/logo/adidas.png", count: "720" },
-  { id: 6, name: "Aksesoris", icon: "/gallery/logo/polo.png", count: "450" },
-  { id: 7, name: "Home Living", icon: "/gallery/logo/lg.png", count: "380" },
-  { id: 8, name: "Olahraga", icon: "/gallery/logo/nike.png", count: "620" },
-  { id: 9, name: "Pakaian", icon: "/gallery/logo/polo.png", count: "1.580" },
-  { id: 10, name: "Kecantikan", icon: "/gallery/logo/apple.png", count: "750" },
+  { id: 1, name: "Fashion", icon: "/gallery/logo/clothes.png", count: "1.240" },
+  { id: 2, name: "Elektronik", icon: "/gallery/logo/television.png", count: "980" },
+  { id: 3, name: "Beauty", icon: "/gallery/logo/lipstick.png", count: "860" },
+  { id: 4, name: "Gadget", icon: "/gallery/logo/responsive.png", count: "540" },
+  { id: 5, name: "Sepatu", icon: "/gallery/logo/sport-shoe.png", count: "720" },
+  { id: 6, name: "Aksesoris", icon: "/gallery/logo/man.png", count: "450" },
+  { id: 7, name: "Home Living", icon: "/gallery/logo/livingroom.png", count: "380" },
+  { id: 8, name: "Olahraga", icon: "/gallery/logo/sports.png", count: "620" },
+  { id: 9, name: "Pulsa", icon: "/gallery/logo/sim.png", count: "1.580" },
+  { id: 10, name: "Onmarket Farmasi", icon: "/gallery/logo/medicine.png", count: "750" },
 ];
 
 export default function CategoryGrid() {
