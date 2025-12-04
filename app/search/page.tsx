@@ -219,7 +219,7 @@ export default function SearchPage() {
     const searchQuery = query.toLowerCase().trim();
     // Map "baju" to "pakaian" for better search results
     const normalizedQuery = searchQuery === "baju" ? "pakaian" : searchQuery;
-    
+
     return allProducts.filter(
       (product) =>
         product.name.toLowerCase().includes(searchQuery) ||
@@ -277,7 +277,12 @@ export default function SearchPage() {
                   <p className={styles.specs}>{product.specs}</p>
                   <p className={styles.color}>{product.color}</p>
                   <p className={styles.price}>{product.price}</p>
-                  <button className={styles.viewButton}>Lihat Detail</button>
+                  <button
+                    className={styles.viewButton}
+                    onClick={() => router.push(`/product/${product.id}`)}
+                  >
+                    Lihat Detail
+                  </button>
                 </div>
               </div>
             ))}
@@ -287,4 +292,3 @@ export default function SearchPage() {
     </div>
   );
 }
-

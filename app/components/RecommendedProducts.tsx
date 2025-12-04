@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./RecommendedProducts.module.css";
 
@@ -281,6 +282,7 @@ export default function RecommendedProducts() {
   // Always show recommended products (first 12 products)
   const recommendedProducts = allProducts.slice(0, 12);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
@@ -314,7 +316,12 @@ export default function RecommendedProducts() {
                 <p className={styles.specs}>{product.specs}</p>
                 <p className={styles.color}>{product.color}</p>
                 <p className={styles.price}>{product.price}</p>
-                <button className={styles.viewButton}>Lihat Detail</button>
+                <button
+                  className={styles.viewButton}
+                  onClick={() => router.push(`/product/${product.id }`)}
+                >
+                  Lihat Detail
+                </button>
               </div>
             </div>
           ))}
