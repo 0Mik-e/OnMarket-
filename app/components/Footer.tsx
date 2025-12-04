@@ -47,7 +47,7 @@ export default function Footer() {
           <div className={styles.badgeRow}>
             <span className={styles.badge}>Secure Checkout</span>
             <span className={styles.badge}>24/7 Support</span>
-            <span className={styles.badge}>Powered by Prisma & Next.js</span>
+            <span className={styles.badge}>Fast Delivery</span>
           </div>
         </div>
       </div>
