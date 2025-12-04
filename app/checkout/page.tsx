@@ -41,6 +41,17 @@ export default function CheckoutPage() {
     return () => clearInterval(timer);
   }, [showModal, secondsLeft]);
 
+  React.useEffect(() => {
+    const token =
+      typeof window !== "undefined"
+        ? window.localStorage.getItem("token")
+        : null;
+
+    if (!token) {
+      router.push("/login");
+    }
+  }, [router]);
+
   const totalPrice = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0

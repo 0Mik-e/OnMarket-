@@ -1,13 +1,24 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useCart } from "../context/CartContext";
 import styles from "./page.module.css";
-import { useRouter } from "next/navigation";
 
 export default function CartPage() {
   const router = useRouter();
   const { items, totalItems, removeFromCart, clearCart } = useCart();
+
+  useEffect(() => {
+    const token = typeof window !== "undefined"
+      ? window.localStorage.getItem("token")
+      : null;
+
+    if (!token) {
+      router.push("/login");
+    }
+  }, [router]);
 
   const totalPrice = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -74,8 +85,11 @@ export default function CartPage() {
               >
                 Kosongkan keranjang
               </button>
-              <button type="button" className={styles.checkout}
-          onClick={() => router.push("/checkout")}>
+              <button
+                type="button"
+                className={styles.checkout}
+                onClick={() => router.push("/checkout")}
+              >
                 Lanjut ke pembayaran
               </button>
             </div>

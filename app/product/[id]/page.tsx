@@ -463,6 +463,16 @@ export default function ProductDetailPage() {
   }
 
   const handleAddToCart = () => {
+    const token =
+      typeof window !== "undefined"
+        ? window.localStorage.getItem("token")
+        : null;
+
+    if (!token) {
+      router.push("/login");
+      return;
+    }
+
     addToCart({
       id: product.id,
       name: product.name,
