@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import PromoTicker from "./components/PromoTicker";
+import Footer from "./components/Footer";
 import "./globals.css";
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Navbar />
         <PromoTicker />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
