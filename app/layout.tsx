@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import PromoTicker from "./components/PromoTicker";
+import PromoWrapper from "./components/wrapper";
 import "./globals.css";
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <PromoTicker />
+        <PromoWrapper />
         <main>{children}</main>
       </body>
     </html>

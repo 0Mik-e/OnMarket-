@@ -132,6 +132,49 @@
   background: rgba(239, 68, 68, 0.16);
 }
 
+.menuBasic {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(46, 65, 88, 0.1);
+  color: #8ab8f8;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.menuPremium {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  text-align: left;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.15),
+    rgba(255, 215, 0, 0.25),
+    rgba(255, 215, 0, 0.15)
+  );
+  background-size: 200% 100%;
+  color: #ffd700;
+  font-weight: 700;
+  cursor: pointer;
+  animation: premiumShine 3s ease-in-out infinite;
+}
+
+@keyframes premiumShine {
+  0% {
+    background-position: 200% 0;
+  }
+  50% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+
 .logoutBtn {
   padding: 8px 16px;
   border-radius: 999px;

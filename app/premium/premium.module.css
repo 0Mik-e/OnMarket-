@@ -1,0 +1,168 @@
+.page {
+  --background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 30%, #fb923c 80%, #f97316 100%);
+  --foreground: #ffffffb7;
+  --container-bg: #f2c28fa5;
+  --button-bg: #ff791a;
+
+  min-height: 100vh;
+  padding-top: 100px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.decor {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  background: var(--container-bg);
+  color: white;
+  padding: 40px 36px;
+  border-radius: 28px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.title {
+  font-size: 42px;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 28px;
+  opacity: 0.95;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.buyBtn {
+  border: none;
+  padding: 14px 28px;
+  background: var(--button-bg);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(255, 122, 26, 0.4);
+  transition: 0.2s;
+}
+
+.buyBtn:hover {
+  opacity: 0.9;
+}
+
+/* POPUP */
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.popup {
+  background: #1f2937;
+  padding: 32px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  animation: popupShow 0.25s ease;
+}
+
+@keyframes popupShow {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.paymentList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.paymentList button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #334155;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.paymentList button:hover {
+  background: #475569;
+}
+
+.closeBtn {
+  margin-top: 10px;
+  background: #ef4444;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  opacity: 0.9;
+}
+
+.backBtn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  z-index: 5;
+  transition: 0.2s;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

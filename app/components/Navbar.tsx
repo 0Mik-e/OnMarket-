@@ -17,8 +17,28 @@ export default function Navbar() {
     null
   );
   const [menuOpen, setMenuOpen] = useState(false);
+  const [helpData, setHelpData] = useState(null);
+  const [premiumData, setPremiumData] = useState(null);
   const pathname = usePathname();
   const router = useRouter();
+
+  const fetchProtectedData = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    try {
+      const help = await fetch("/api/help-center", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const premium = await fetch("/api/premium", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (help.ok) setHelpData(await help.json());
+      if (premium.ok) setPremiumData(await premium.json());
+    } catch {}
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -32,6 +52,7 @@ export default function Navbar() {
         const decoded = jwtDecode<UserToken>(token);
         if (decoded?.name) {
           setUser({ name: decoded.name, email: decoded.email });
+          fetchProtectedData();
         } else {
           setUser(null);
         }
@@ -90,6 +111,7 @@ export default function Navbar() {
             <span className={styles.userGreeting}>Hi,</span>
             <span className={styles.userName}>{user.name}</span>
           </div>
+
           <button
             type="button"
             className={styles.avatar}
@@ -97,13 +119,33 @@ export default function Navbar() {
           >
             {initials}
           </button>
+
           {menuOpen && (
             <div className={styles.profileMenu}>
               <p className={styles.menuName}>{user.name}</p>
-              {user.email && (
-                <p className={styles.menuEmail}>{user.email}</p>
-              )}
-              <button type="button" onClick={logout} className={styles.menuLogout}>
+              {user.email && <p className={styles.menuEmail}>{user.email}</p>}
+
+              <button
+                type="button"
+                onClick={() => router.push("/help-center")}
+                className={styles.menuBasic}
+              >
+                Pusat Bantuan
+              </button>
+
+              <button
+                type="button"
+                onClick={() => router.push("/premium")}
+                className={styles.menuPremium}
+              >
+                Premium
+              </button>
+
+              <button
+                type="button"
+                onClick={logout}
+                className={styles.menuLogout}
+              >
                 Logout
               </button>
             </div>
