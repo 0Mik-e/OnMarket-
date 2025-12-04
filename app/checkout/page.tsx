@@ -18,7 +18,28 @@ type PaymentMethod = "ewallet" | "cod" | "credit";
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, totalItems } = useCart();
-  const [method, setMethod] = React.useState<PaymentMethod>("ewallet");
+  const [method, setMethod] = React.useState<PaymentMethod | null>(null);
+  const [bank, setBank] = React.useState<string>("");
+  const [ewallet, setEwallet] = React.useState<string>("");
+  const [location, setLocation] = React.useState<string>("");
+  const [error, setError] = React.useState<string | null>(null);
+  const [showModal, setShowModal] = React.useState(false);
+  const [virtualAccount, setVirtualAccount] = React.useState<string | null>(
+    null
+  );
+  const [secondsLeft, setSecondsLeft] = React.useState<number | null>(null);
+
+  React.useEffect(() => {
+    if (!showModal || secondsLeft === null) return;
+
+    if (secondsLeft <= 0) return;
+
+    const timer = setInterval(() => {
+      setSecondsLeft((prev) => (prev !== null ? Math.max(prev - 1, 0) : 0));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [showModal, secondsLeft]);
 
   const totalPrice = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -42,6 +63,43 @@ export default function CheckoutPage() {
       </div>
     );
   }
+
+  const handlePay = () => {
+    // Validasi: metode & detail pembayaran harus dipilih
+    if (!method) {
+      setError("Silakan pilih metode pembayaran terlebih dahulu.");
+      return;
+    }
+    if (method === "ewallet" && !ewallet) {
+      setError("Pilih e-wallet yang ingin digunakan.");
+      return;
+    }
+    if (method === "credit" && !bank) {
+      setError("Pilih bank kartu kredit terlebih dahulu.");
+      return;
+    }
+    if (!location.trim()) {
+      setError("Isi lokasi pengiriman terlebih dahulu.");
+      return;
+    }
+
+    setError(null);
+
+    // Generate nomor VA acak
+    const prefix =
+      method === "ewallet"
+        ? "88"
+        : method === "credit"
+        ? "55"
+        : "99"; // COD bisa dianggap kode referensi
+    const randomDigits = Array.from({ length: 10 }, () =>
+      Math.floor(Math.random() * 10).toString()
+    ).join("");
+
+    setVirtualAccount(prefix + randomDigits);
+    setSecondsLeft(10);
+    setShowModal(true);
+  };
 
   return (
     <div className={styles.page}>
@@ -80,35 +138,128 @@ export default function CheckoutPage() {
           <div className={styles.paymentChips}>
             <button
               type="button"
-              className={styles.checkout}
-              onClick={() => setMethod("ewallet")}
+              className={styles.secondaryButton}
+              onClick={() => {
+                setMethod("ewallet");
+                setError(null);
+              }}
             >
               E-Wallet
             </button>
             <button
               type="button"
-              className={styles.checkout}
-              onClick={() => setMethod("cod")}
+              className={styles.secondaryButton}
+              onClick={() => {
+                setMethod("cod");
+                setError(null);
+              }}
             >
               COD
             </button>
             <button
               type="button"
-              className={styles.checkout}
-              onClick={() => setMethod("credit")}
+              className={styles.secondaryButton}
+              onClick={() => {
+                setMethod("credit");
+                setError(null);
+              }}
             >
               Kartu Kredit
             </button>
           </div>
+
+          {method === "credit" && (
+            <div className={styles.fieldGroup}>
+              <p className={styles.summaryLabel}>Pilih bank</p>
+              <select
+                className={styles.select}
+                value={bank}
+                onChange={(e) => setBank(e.target.value)}
+              >
+                <option value="BCA">BCA</option>
+                <option value="BNI">BNI</option>
+                <option value="BRI">BRI</option>
+                <option value="Mandiri">Mandiri</option>
+              </select>
+            </div>
+          )}
+
+          {method === "ewallet" && (
+            <div className={styles.fieldGroup}>
+              <p className={styles.summaryLabel}>Pilih E-Wallet</p>
+              <select
+                className={styles.select}
+                value={ewallet}
+                onChange={(e) => setEwallet(e.target.value)}
+              >
+                <option value="Gopay">GoPay</option>
+                <option value="OVO">OVO</option>
+                <option value="Dana">Dana</option>
+                <option value="ShopeePay">ShopeePay</option>
+              </select>
+            </div>
+          )}
+
+          <div className={styles.fieldGroup}>
+            <p className={styles.summaryLabel}>Lokasi pengiriman</p>
+            <input
+              className={styles.input}
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              placeholder="Kota / Kecamatan"
+            />
+          </div>
+
+          {error && <p className={styles.errorText}>{error}</p>}
+
           <button
             type="button"
-            className={styles.checkout}
-            onClick={() => router.push(`/payment/success?m=${method})`)}
+            className={styles.primaryButton}
+            onClick={handlePay}
           >
             Bayar sekarang
           </button>
         </div>
       </div>
+
+      {showModal && virtualAccount && (
+        <div className={styles.modalBackdrop}>
+          <div className={styles.modal}>
+            {secondsLeft && secondsLeft > 0 ? (
+              <>
+                <span className={styles.badge}>Menunggu pembayaran</span>
+                <h2 className={styles.modalTitle}>Selesaikan pembayaran</h2>
+                <p className={styles.modalText}>
+                  Gunakan nomor VA / kode berikut sebelum waktu habis.
+                </p>
+                <p className={styles.vaLabel}>Nomor VA / Kode Bayar</p>
+                <p className={styles.vaValue}>{virtualAccount}</p>
+                <p className={styles.timerText}>
+                  Otomatis terkonfirmasi dalam {secondsLeft} detik...
+                </p>
+              </>
+            ) : (
+              <>
+                <span className={styles.badge}>Pembayaran sukses</span>
+                <h2 className={styles.modalTitle}>Terima kasih!</h2>
+                <p className={styles.modalText}>
+                  Pesanan kamu sedang diproses dan akan dikirim ke {location}.
+                </p>
+                <button
+                  type="button"
+                  className={styles.primaryButton}
+                  onClick={() => {
+                    setShowModal(false);
+                    router.push("/");
+                  }}
+                >
+                  Kembali ke beranda
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

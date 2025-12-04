@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useCart } from "../context/CartContext";
 import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
+  const router = useRouter();
   const { items, totalItems, removeFromCart, clearCart } = useCart();
 
   const totalPrice = items.reduce(
@@ -72,7 +74,8 @@ export default function CartPage() {
               >
                 Kosongkan keranjang
               </button>
-              <button type="button" className={styles.checkout}>
+              <button type="button" className={styles.checkout}
+          onClick={() => router.push("/checkout")}>
                 Lanjut ke pembayaran
               </button>
             </div>

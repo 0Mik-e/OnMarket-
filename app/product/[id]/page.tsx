@@ -145,6 +145,7 @@ export default function ProductDetailPage() {
   const handleBuyNow = () => {
     handleAddToCart();
     router.push("/cart");
+    router.push("/checkout");
   };
 
   return (
