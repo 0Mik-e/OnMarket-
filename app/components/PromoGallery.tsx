@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./PromoGallery.module.css";
+import { useRouter } from "next/navigation";
 
 const promos = [
   {
@@ -39,13 +40,13 @@ const promos = [
   },
   {
     id: 4,
-    title: "Beauty & Groceries",
-    subtitle: "Upgrade You Skincare",
-    description: "Produk kecantikan & kebutuhan sehari-hari pilihan.",
+    title: "Day2Day Market",
+    subtitle: "Belanja kebutuhan harian",
+    description: "Sayur, buah, sampai daging segar langsung diantar.",
     highlight: "Diskon s.d. 50%",
     fineprint: "Tambahan ekstra diskon 5% dengan voucher.",
-    brand: "OnMarket Lifestyle",
-    verified: "Favorite Picks",
+    brand: "Farmers Market",
+    verified: "Fresh Everyday",
     variant: "cardGreen",
   },
   {
@@ -62,6 +63,7 @@ const promos = [
 ];
 
 export default function PromoGallery() {
+  const router = useRouter();
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -97,7 +99,17 @@ export default function PromoGallery() {
                   <p className={styles.fineprint}>{promo.fineprint}</p>
                   <span className={styles.tag}>Lihat detail promo</span>
                 </div>
-                <button className={styles.ctaButton}>Cek promo</button>
+                <button
+                  className={styles.ctaButton}
+                  type="button"
+                  onClick={() =>
+                    router.push(
+                      `/search?q=${encodeURIComponent(promo.subtitle)}`
+                    )
+                  }
+                >
+                  Cek promo
+                </button>
               </div>
             </article>
           ))}

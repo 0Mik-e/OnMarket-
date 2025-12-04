@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { jwtDecode, JwtPayload } from "jwt-decode";
 import { usePathname, useRouter } from "next/navigation";
 import styles from "./Navbar.module.css";
+import { useCart } from "../context/CartContext";
 
 interface UserToken extends JwtPayload {
   name: string;
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const { totalItems } = useCart();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -50,8 +52,8 @@ export default function Navbar() {
     router.push("/login");
   };
 
-  const linkClass = (href: string) =>
-    `${styles.link} ${pathname === href ? styles.active : ""}`;
+ const linkClass = (href: string) =>
+  `${styles.link} ${pathname === href ? styles.active : ""}`;
 
   const initials =
     user?.name
@@ -75,41 +77,58 @@ export default function Navbar() {
         <span>OnMarket</span>
       </Link>
 
-      {!user ? (
-        <div className={styles.links}>
-          <Link href="/login" className={linkClass("/login")}>
-            Login
-          </Link>
-          <Link href="/register" className={linkClass("/register")}>
-            Sign Up
-          </Link>
-        </div>
-      ) : (
-        <div className={styles.profileWrapper}>
-          <div className={styles.profileText}>
-            <span className={styles.userGreeting}>Hi,</span>
-            <span className={styles.userName}>{user.name}</span>
-          </div>
-          <button
-            type="button"
-            className={styles.avatar}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {initials}
-          </button>
-          {menuOpen && (
-            <div className={styles.profileMenu}>
-              <p className={styles.menuName}>{user.name}</p>
-              {user.email && (
-                <p className={styles.menuEmail}>{user.email}</p>
-              )}
-              <button type="button" onClick={logout} className={styles.menuLogout}>
-                Logout
-              </button>
-            </div>
+      <div className={styles.rightArea}>
+        <button
+          type="button"
+          className={styles.cartButton}
+          onClick={() => router.push("/cart")}
+        >
+          <span className={styles.cartIcon}>🛒</span>
+          {totalItems > 0 && (
+            <span className={styles.cartBadge}>{totalItems}</span>
           )}
-        </div>
-      )}
+        </button>
+
+        {!user ? (
+          <div className={styles.links}>
+            <Link href="/login" className={linkClass("/login")}>
+              Login
+            </Link>
+            <Link href="/register" className={linkClass("/register")}>
+              Sign Up
+            </Link>
+          </div>
+        ) : (
+          <div className={styles.profileWrapper}>
+            <div className={styles.profileText}>
+              <span className={styles.userGreeting}>Hi,</span>
+              <span className={styles.userName}>{user.name}</span>
+            </div>
+            <button
+              type="button"
+              className={styles.avatar}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {initials}
+            </button>
+            {menuOpen && (
+              <div className={styles.profileMenu}>
+                <p className={styles.menuName}>{user.name}</p>
+                {user.email && (
+                  <p className={styles.menuEmail}>{user.email}</p>
+                )}
+                <button
+                  type="button"
+                  onClick={logout}
+                  className={styles.menuLogout}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </nav>
   );
 }

@@ -1,0 +1,46 @@
+.page {
+  background: var(--background);
+  min-height: calc(100vh - 120px);
+  padding: 32px 0 60px;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.summaryLabel {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.summaryValue {
+  margin: 0 0 24px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.checkout {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #f9fafb;
+}

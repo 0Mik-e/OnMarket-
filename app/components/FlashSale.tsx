@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./FlashSale.module.css";
 
@@ -94,6 +95,7 @@ const formatPrice = (value: number) =>
 
 export default function FlashSale() {
   const [remainingSeconds, setRemainingSeconds] = useState(8 * 3600 + 43 * 60 + 22);
+  const router = useRouter();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -189,7 +191,13 @@ export default function FlashSale() {
                     />
                   </div>
                   <p className={styles.status}>{item.label}</p>
-                  <button className={styles.buyButton}>Beli sekarang</button>
+                  <button
+                    className={styles.buyButton}
+                    type="button"
+                    onClick={() => router.push( `/product/${item.id}`)}
+                  >
+                    Beli sekarang
+                  </button>
                 </div>
               </article>
             );
