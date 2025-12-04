@@ -17,7 +17,7 @@ type PaymentMethod = "ewallet" | "cod" | "credit";
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { items, totalItems } = useCart();
+  const { items, totalItems, clearCart } = useCart();
   const [method, setMethod] = React.useState<PaymentMethod | null>(null);
   const [bank, setBank] = React.useState<string>("");
   const [ewallet, setEwallet] = React.useState<string>("");
@@ -250,6 +250,7 @@ export default function CheckoutPage() {
                   className={styles.primaryButton}
                   onClick={() => {
                     setShowModal(false);
+                    clearCart();
                     router.push("/");
                   }}
                 >
