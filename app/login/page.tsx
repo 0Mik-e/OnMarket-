@@ -38,13 +38,12 @@ export default function LoginPage() {
       <div className="auth-layout">
         <aside className="auth-showcase">
           <p className="pill">Marketplace Premium</p>
-          <h2>Kelola toko online dan pantau penjualan dari satu dashboard.</h2>
+          <h2>OnMarket Marketplace</h2>
           <p>
-            Login untuk memantau performa, menambah produk baru, hingga meninjau
-            pesanan pelanggan secara real-time.
+            Login Untuk Mencari Produk Barang Yang anda inginkan dengan mudah
           </p>
           <ul>
-            <li>Analitik penjualan harian</li>
+            <li>Manajemen Produk</li>
             <li>Integrasi payment gateway</li>
             <li>Tim support 24/7</li>
           </ul>
