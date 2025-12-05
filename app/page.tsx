@@ -10,6 +10,9 @@ import RecommendedProducts from "./components/RecommendedProducts";
 import FlashSale from "./components/FlashSale";
 import BrandShowcase from "./components/BrandShowcase";
 import TestimonialSection from "./components/TestimonialSection";
+import NewsletterSection from "./components/NewsletterSection";
+
+
 export default function HomePage() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,9 +55,10 @@ export default function HomePage() {
       <BannerCarousel />
       <CategoryGrid />
       <RecommendedProducts />
-      <PromoGallery />
       <FlashSale />
       <BrandShowcase />
+      <NewsletterSection />
+      <PromoGallery />
       <TestimonialSection />
     </div>
   );
