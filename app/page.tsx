@@ -8,7 +8,8 @@ import BannerCarousel from "./components/BannerCarousel";
 import PromoGallery from "./components/PromoGallery";
 import RecommendedProducts from "./components/RecommendedProducts";
 import FlashSale from "./components/FlashSale";
-
+import BrandShowcase from "./components/BrandShowcase";
+import TestimonialSection from "./components/TestimonialSection";
 export default function HomePage() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
@@ -53,6 +54,8 @@ export default function HomePage() {
       <RecommendedProducts />
       <PromoGallery />
       <FlashSale />
+      <BrandShowcase />
+      <TestimonialSection />
     </div>
   );
 }
