@@ -30,7 +30,7 @@ const promos = [
     brand: "IKEA Smart Home",
     tag: "Home Living",
     copy: "Paketan lampu & sensor otomatis, mulai 499rb.",
-    image: "/gallery/logo/lg.png",
+    image: "/gallery/logo/ikea.png",
   },
 ];
 

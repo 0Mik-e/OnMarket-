@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./RecommendedProducts.module.css";
 
@@ -200,7 +201,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 40-44 | Leather",
     price: "Rp 899.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/bootspria.png",
     color: "Black & Brown",
   },
   {
@@ -209,7 +210,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Oxford Cotton",
     price: "Rp 329.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/kemejaoxfordpria.png",
     color: "Navy & White",
   },
   {
@@ -218,7 +219,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size 28-36 | Denim Premium",
     price: "Rp 549.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/jeansslimfit.png",
     color: "Blue & Black",
   },
   {
@@ -227,7 +228,7 @@ const allProducts = [
     category: "Aksesoris",
     specs: "Leather | Multi Compartment",
     price: "Rp 699.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/totebagwanita.png",
     color: "Beige & Brown",
   },
   {
@@ -236,7 +237,7 @@ const allProducts = [
     category: "Elektronik",
     specs: "42mm | Fitness Tracker",
     price: "Rp 2.499.000",
-    image: "/gallery/logo/apple.png",
+    image: "/gallery/product/smartwatch.png",
     color: "Black & Silver",
   },
   {
@@ -245,7 +246,7 @@ const allProducts = [
     category: "Elektronik",
     specs: "Noise Cancelling | 30h Battery",
     price: "Rp 1.799.000",
-    image: "/gallery/logo/sony.png",
+    image: "/gallery/product/headphonewireless.png",
     color: "Black & Blue",
   },
   {
@@ -254,7 +255,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 38-44 | Waterproof",
     price: "Rp 249.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/sepatusandalsport.png",
     color: "Black & Grey",
   },
   {
@@ -263,7 +264,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Pique Cotton",
     price: "Rp 199.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/polopria.png",
     color: "White & Navy",
   },
   {
@@ -272,7 +273,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size S-L | Chiffon",
     price: "Rp 549.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/dressmidi.png",
     color: "Pink & White",
   },
 ];
@@ -281,6 +282,7 @@ export default function RecommendedProducts() {
   // Always show recommended products (first 12 products)
   const recommendedProducts = allProducts.slice(0, 12);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
@@ -314,7 +316,12 @@ export default function RecommendedProducts() {
                 <p className={styles.specs}>{product.specs}</p>
                 <p className={styles.color}>{product.color}</p>
                 <p className={styles.price}>{product.price}</p>
-                <button className={styles.viewButton}>Lihat Detail</button>
+                <button
+                  className={styles.viewButton}
+                  onClick={() => router.push(`/product/${product.id }`)}
+                >
+                  Lihat Detail
+                </button>
               </div>
             </div>
           ))}

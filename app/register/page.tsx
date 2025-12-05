@@ -38,16 +38,15 @@ export default function RegisterPage() {
     <section className="auth-wrapper">
       <div className="auth-layout">
         <aside className="auth-showcase">
-          <p className="pill">Mulai Berjualan</p>
-          <h2>Daftarkan toko Anda dan jangkau ribuan pembeli setiap hari.</h2>
+          <p className="pill">Mulai Mencari Produk</p>
+          <h2>Buat akun baru</h2>
           <p>
-            Buat akun baru untuk mempublikasikan katalog produk, kelola stok,
-            hingga memproses pesanan masuk hanya dalam hitungan menit.
+            Daftar sekarang dan nikmati kemudahan berbelanja di OnMarket.
           </p>
           <ul>
-            <li>Upload produk tanpa batas</li>
+            <li>Pengiriman cepat</li>
             <li>Voucher & promosi terjadwal</li>
-            <li>Notifikasi pesanan instan</li>
+            <li>Pembayaran aman dan mudah</li>
           </ul>
         </aside>
 

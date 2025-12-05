@@ -30,7 +30,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Denim Original",
     price: "Rp 599.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/denimunisex.png",
     color: "Blue & Black",
   },
   {
@@ -39,7 +39,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size 28-36 | Slim Fit",
     price: "Rp 349.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/chinopria.png",
     color: "Khaki & Navy",
   },
   {
@@ -48,7 +48,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 38-44 | Sporty",
     price: "Rp 799.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/sneakernike.png",
     color: "White & Black",
   },
   {
@@ -57,7 +57,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 39-43 | Running",
     price: "Rp 899.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/runningaddidas.png",
     color: "Black & White",
   },
   {
@@ -66,7 +66,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 40-44 | Casual",
     price: "Rp 499.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/sepatucasual.png",
     color: "Brown & Black",
   },
   {
@@ -75,7 +75,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 36-40 | Heels",
     price: "Rp 599.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/heels.png",
     color: "Black & Red",
   },
   {
@@ -84,7 +84,7 @@ const allProducts = [
     category: "Aksesoris",
     specs: "Waterproof | Multi Pocket",
     price: "Rp 449.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/ransel.png",
     color: "Black & Grey",
   },
   {
@@ -93,7 +93,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Flanel",
     price: "Rp 279.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/flanelpria.png",
     color: "Red & Blue",
   },
   {
@@ -102,7 +102,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size S-XXL | Cotton",
     price: "Rp 149.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/kaospria.png",
     color: "White & Black",
   },
   {
@@ -111,7 +111,7 @@ const allProducts = [
     category: "Elektronik",
     specs: "44mm | Bluetooth",
     price: "Rp 3.999.000",
-    image: "/gallery/logo/samsung.png",
+    image: "/gallery/product/samsungwatch.png",
     color: "Mineral Blue",
   },
   {
@@ -120,7 +120,7 @@ const allProducts = [
     category: "Elektronik",
     specs: "256GB | 5G",
     price: "Rp 18.999.000",
-    image: "/gallery/logo/apple.png",
+    image: "/gallery/product/appleiphone.png",
     color: "Titanium",
   },
   {
@@ -129,7 +129,7 @@ const allProducts = [
     category: "Elektronik",
     specs: "Intel i7 | 16GB RAM",
     price: "Rp 12.999.000",
-    image: "/gallery/logo/asus.png",
+    image: "/gallery/product/laptopasus.png",
     color: "Silver",
   },
   {
@@ -138,7 +138,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size S-XXL | Cotton 100%",
     price: "Rp 149.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/kaospria.png",
     color: "Hitam & Putih",
   },
   {
@@ -147,7 +147,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size S-L | Satin Premium",
     price: "Rp 449.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/blushwanita.png",
     color: "Cream & Navy",
   },
   {
@@ -156,7 +156,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Flanel Tebal",
     price: "Rp 279.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/flanelpria.png",
     color: "Merah & Biru",
   },
   {
@@ -165,7 +165,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "One Size | Cotton Blend",
     price: "Rp 49.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/kaoskakipremium.png",
     color: "Putih & Hitam",
   },
   {
@@ -174,7 +174,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Fleece",
     price: "Rp 499.000",
-    image: "/gallery/logo/polo.png",
+    image: "/gallery/product/hoodieunisex.png",
     color: "Abu-abu & Hitam",
   },
   {
@@ -183,7 +183,7 @@ const allProducts = [
     category: "Pakaian",
     specs: "Size M-XXL | Katun Batik",
     price: "Rp 379.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/batikpria.png",
     color: "Coklat & Emas",
   },
   {
@@ -192,7 +192,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 38-44 | Air Cushion",
     price: "Rp 1.299.000",
-    image: "/gallery/logo/nike.png",
+    image: "/gallery/product/sportnike.png",
     color: "White & Blue",
   },
   {
@@ -201,7 +201,7 @@ const allProducts = [
     category: "Sepatu",
     specs: "Size 40-44 | Leather",
     price: "Rp 899.000",
-    image: "/gallery/logo/adidas.png",
+    image: "/gallery/product/bootspria.png",
     color: "Black & Brown",
   },
 ];
@@ -219,7 +219,7 @@ export default function SearchPage() {
     const searchQuery = query.toLowerCase().trim();
     // Map "baju" to "pakaian" for better search results
     const normalizedQuery = searchQuery === "baju" ? "pakaian" : searchQuery;
-    
+
     return allProducts.filter(
       (product) =>
         product.name.toLowerCase().includes(searchQuery) ||
@@ -277,7 +277,12 @@ export default function SearchPage() {
                   <p className={styles.specs}>{product.specs}</p>
                   <p className={styles.color}>{product.color}</p>
                   <p className={styles.price}>{product.price}</p>
-                  <button className={styles.viewButton}>Lihat Detail</button>
+                  <button
+                    className={styles.viewButton}
+                    onClick={() => router.push(`/product/${product.id}`)}
+                  >
+                    Lihat Detail
+                  </button>
                 </div>
               </div>
             ))}
@@ -287,4 +292,3 @@ export default function SearchPage() {
     </div>
   );
 }
-

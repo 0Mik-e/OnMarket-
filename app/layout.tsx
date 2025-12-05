@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import PromoTicker from "./components/PromoTicker";
 import PromoWrapper from "./components/wrapper";
+import Footer from "./components/Footer";
+import { Providers } from "./Providers";
 import "./globals.css";
 
 export const metadata = {
@@ -17,9 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <PromoWrapper />
-        <main>{children}</main>
+        <Providers>
+          <Navbar />
+          <PromoWrapper />
+          <PromoTicker />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

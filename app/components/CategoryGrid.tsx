@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styles from "./CategoryGrid.module.css";
 
 const categories = [
@@ -15,13 +16,39 @@ const categories = [
 ];
 
 export default function CategoryGrid() {
+  const router = useRouter();
+
+  const handleClick = (name: string) => {
+    // Map kategori ke kata kunci pencarian yang sesuai data search
+    const lower = name.toLowerCase();
+    let query = lower;
+
+    if (lower === "fashion") {
+      query = "pakaian";
+    } else if (lower === "home living") {
+      query = "home";
+    } else if (lower === "gadget"){
+      query = "elektronik";
+    }
+      else if (lower === "onmarket farmasi") {
+      query = "obat";
+    }
+
+    router.push(`/search?q=${encodeURIComponent(query)}`);
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>Kategori Populer</h2>
         <div className={styles.grid}>
           {categories.map((category) => (
-            <div key={category.id} className={styles.categoryCard}>
+            <button
+              key={category.id}
+              type="button"
+              className={styles.categoryCard}
+              onClick={() => handleClick(category.name)}
+            >
               <div className={styles.iconWrapper}>
                 <Image
                   src={category.icon}
@@ -35,11 +62,10 @@ export default function CategoryGrid() {
                 <h3 className={styles.categoryName}>{category.name}</h3>
                 <p className={styles.count}>{category.count} produk</p>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

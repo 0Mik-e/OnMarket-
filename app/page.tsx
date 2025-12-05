@@ -3,9 +3,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
-import RecommendedProducts from "./components/RecommendedProducts";
 import CategoryGrid from "./components/CategoryGrid";
 import BannerCarousel from "./components/BannerCarousel";
+import PromoGallery from "./components/PromoGallery";
+import RecommendedProducts from "./components/RecommendedProducts";
+import FlashSale from "./components/FlashSale";
+import BrandShowcase from "./components/BrandShowcase";
+import TestimonialSection from "./components/TestimonialSection";
+import NewsletterSection from "./components/NewsletterSection";
+
 
 export default function HomePage() {
   const router = useRouter();
@@ -88,6 +94,11 @@ export default function HomePage() {
       <BannerCarousel />
       <CategoryGrid />
       <RecommendedProducts />
+      <FlashSale />
+      <BrandShowcase />
+      <NewsletterSection />
+      <PromoGallery />
+      <TestimonialSection />
     </div>
   );
 }

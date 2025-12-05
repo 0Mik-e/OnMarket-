@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./BannerCarousel.module.css";
 
 const banners = [
   {
     id: 1,
+    key: "flash-sale",
     title: "Flash Sale",
     subtitle: "Diskon hingga 70%",
     description: "Berlaku hari ini saja!",
@@ -12,6 +15,7 @@ const banners = [
   },
   {
     id: 2,
+    key: "new-arrival",
     title: "New Arrival",
     subtitle: "Koleksi Terbaru",
     description: "Produk fashion & elektronik terbaru",
@@ -20,6 +24,7 @@ const banners = [
   },
   {
     id: 3,
+    key: "best-seller",
     title: "Best Seller",
     subtitle: "Produk Paling Laris",
     description: "Pilihan terbaik untuk Anda",
@@ -29,6 +34,13 @@ const banners = [
 ];
 
 export default function BannerCarousel() {
+  const handleClick = (key: string) => {
+    if (key === "flash-sale" && typeof document !== "undefined") {
+      const el = document.getElementById("flash-sale-section");
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -38,6 +50,7 @@ export default function BannerCarousel() {
               key={banner.id}
               className={styles.bannerCard}
               style={{ background: banner.gradient }}
+              onClick={() => handleClick(banner.key)}
             >
               <div className={styles.bannerContent}>
                 <div className={styles.textContent}>
@@ -63,4 +76,3 @@ export default function BannerCarousel() {
     </section>
   );
 }
-
